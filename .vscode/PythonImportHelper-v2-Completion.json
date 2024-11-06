@@ -1,0 +1,587 @@
+[
+    {
+        "label": "boto3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "boto3",
+        "description": "boto3",
+        "detail": "boto3",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "dynamodb",
+        "kind": 5,
+        "importPath": "dynamodb.itemCreate",
+        "description": "dynamodb.itemCreate",
+        "peekOfCode": "dynamodb = boto3.client('dynamodb')\nresponse = dynamodb.put_item(\n    Item={\n        'ID':{\n          'S': '2ddf7888-2e48-11ed-a261-0242ac120002'  ,\n        },\n        'AlbumTitle': {\n            'S': 'Somewhat Famous',\n        },\n        'Artist': {",
+        "detail": "dynamodb.itemCreate",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "dynamodb.itemCreate",
+        "description": "dynamodb.itemCreate",
+        "peekOfCode": "response = dynamodb.put_item(\n    Item={\n        'ID':{\n          'S': '2ddf7888-2e48-11ed-a261-0242ac120002'  ,\n        },\n        'AlbumTitle': {\n            'S': 'Somewhat Famous',\n        },\n        'Artist': {\n            'S': 'No One You Know',",
+        "detail": "dynamodb.itemCreate",
+        "documentation": {}
+    },
+    {
+        "label": "dynamodb",
+        "kind": 5,
+        "importPath": "dynamodb.tableCreate",
+        "description": "dynamodb.tableCreate",
+        "peekOfCode": "dynamodb = boto3.client('dynamodb')\nresponse = dynamodb.create_table(\n    AttributeDefinitions=[\n        {\n            'AttributeName': 'ID',\n            'AttributeType': 'S',\n        }\n    ],\n    KeySchema=[\n        {",
+        "detail": "dynamodb.tableCreate",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "dynamodb.tableCreate",
+        "description": "dynamodb.tableCreate",
+        "peekOfCode": "response = dynamodb.create_table(\n    AttributeDefinitions=[\n        {\n            'AttributeName': 'ID',\n            'AttributeType': 'S',\n        }\n    ],\n    KeySchema=[\n        {\n            'AttributeName': 'ID',",
+        "detail": "dynamodb.tableCreate",
+        "documentation": {}
+    },
+    {
+        "label": "dynamodb",
+        "kind": 5,
+        "importPath": "dynamodb.tableDelete",
+        "description": "dynamodb.tableDelete",
+        "peekOfCode": "dynamodb = boto3.client('dynamodb')\nresponse = dynamodb.delete_table(TableName='hells_kitchen')\nprint(response)",
+        "detail": "dynamodb.tableDelete",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "dynamodb.tableDelete",
+        "description": "dynamodb.tableDelete",
+        "peekOfCode": "response = dynamodb.delete_table(TableName='hells_kitchen')\nprint(response)",
+        "detail": "dynamodb.tableDelete",
+        "documentation": {}
+    },
+    {
+        "label": "dynamodb",
+        "kind": 5,
+        "importPath": "dynamodb.tableList",
+        "description": "dynamodb.tableList",
+        "peekOfCode": "dynamodb = boto3.client('dynamodb')\nresponse = dynamodb.list_tables()\ntableNames = response[\"TableNames\"]\nfor tableName in tableNames:\n    print(tableName)",
+        "detail": "dynamodb.tableList",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "dynamodb.tableList",
+        "description": "dynamodb.tableList",
+        "peekOfCode": "response = dynamodb.list_tables()\ntableNames = response[\"TableNames\"]\nfor tableName in tableNames:\n    print(tableName)",
+        "detail": "dynamodb.tableList",
+        "documentation": {}
+    },
+    {
+        "label": "tableNames",
+        "kind": 5,
+        "importPath": "dynamodb.tableList",
+        "description": "dynamodb.tableList",
+        "peekOfCode": "tableNames = response[\"TableNames\"]\nfor tableName in tableNames:\n    print(tableName)",
+        "detail": "dynamodb.tableList",
+        "documentation": {}
+    },
+    {
+        "label": "dynamodb",
+        "kind": 5,
+        "importPath": "dynamodb.tableScan",
+        "description": "dynamodb.tableScan",
+        "peekOfCode": "dynamodb = boto3.client('dynamodb')\nresponse = dynamodb.scan(TableName='movies')\nitems = response[\"Items\"]\nfor item in items:\n    print(item)\n    for k, v in item.items():\n        print(k, list(v.values())[0])",
+        "detail": "dynamodb.tableScan",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "dynamodb.tableScan",
+        "description": "dynamodb.tableScan",
+        "peekOfCode": "response = dynamodb.scan(TableName='movies')\nitems = response[\"Items\"]\nfor item in items:\n    print(item)\n    for k, v in item.items():\n        print(k, list(v.values())[0])",
+        "detail": "dynamodb.tableScan",
+        "documentation": {}
+    },
+    {
+        "label": "items",
+        "kind": 5,
+        "importPath": "dynamodb.tableScan",
+        "description": "dynamodb.tableScan",
+        "peekOfCode": "items = response[\"Items\"]\nfor item in items:\n    print(item)\n    for k, v in item.items():\n        print(k, list(v.values())[0])",
+        "detail": "dynamodb.tableScan",
+        "documentation": {}
+    },
+    {
+        "label": "list_instance_ids",
+        "kind": 2,
+        "importPath": "ec2.instanceIDList",
+        "description": "ec2.instanceIDList",
+        "peekOfCode": "def list_instance_ids(ec2_client):\n    response = ec2_client.describe_instances()\n    reservations = response[\"Reservations\"]\n    instanceIds = []\n    for reservation in reservations:\n        instances = reservation[\"Instances\"]\n        for instance in instances:\n            instanceId = instance[\"InstanceId\"]\n            instanceIds.append(instanceId)\n    return instanceIds",
+        "detail": "ec2.instanceIDList",
+        "documentation": {}
+    },
+    {
+        "label": "list_instance_names",
+        "kind": 2,
+        "importPath": "ec2.instanceNameList",
+        "description": "ec2.instanceNameList",
+        "peekOfCode": "def list_instance_names(ec2_client):\n    response = ec2_client.describe_instances()\n    reservations = response[\"Reservations\"]\n    instanceNames = []\n    for reservation in reservations:\n        instances = reservation[\"Instances\"]\n        for instance in instances:\n            if(\"Tags\" in instance.keys()):\n                tags = instance[\"Tags\"]\n                tags = { tag['Key']:tag['Value'] for tag in tags} ",
+        "detail": "ec2.instanceNameList",
+        "documentation": {}
+    },
+    {
+        "label": "ec2",
+        "kind": 5,
+        "importPath": "ec2.instanceStop",
+        "description": "ec2.instanceStop",
+        "peekOfCode": "ec2 = boto3.client('ec2')\ndev_tag = { \"Key\":\"Environment\", \"Value\":\"Dev\"}\nresponse = ec2.describe_instances()\nreservations = response['Reservations']\nfor reservation in reservations:\n    instances = reservation['Instances']\n    for instance in instances:\n        if (dev_tag in instance['Tags'] and 'running' in instance['State']['Name']):\n            print(instance['InstanceId'])\n            ec2.stop_instances(InstanceIds=[instance['InstanceId']])",
+        "detail": "ec2.instanceStop",
+        "documentation": {}
+    },
+    {
+        "label": "dev_tag",
+        "kind": 5,
+        "importPath": "ec2.instanceStop",
+        "description": "ec2.instanceStop",
+        "peekOfCode": "dev_tag = { \"Key\":\"Environment\", \"Value\":\"Dev\"}\nresponse = ec2.describe_instances()\nreservations = response['Reservations']\nfor reservation in reservations:\n    instances = reservation['Instances']\n    for instance in instances:\n        if (dev_tag in instance['Tags'] and 'running' in instance['State']['Name']):\n            print(instance['InstanceId'])\n            ec2.stop_instances(InstanceIds=[instance['InstanceId']])",
+        "detail": "ec2.instanceStop",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "ec2.instanceStop",
+        "description": "ec2.instanceStop",
+        "peekOfCode": "response = ec2.describe_instances()\nreservations = response['Reservations']\nfor reservation in reservations:\n    instances = reservation['Instances']\n    for instance in instances:\n        if (dev_tag in instance['Tags'] and 'running' in instance['State']['Name']):\n            print(instance['InstanceId'])\n            ec2.stop_instances(InstanceIds=[instance['InstanceId']])",
+        "detail": "ec2.instanceStop",
+        "documentation": {}
+    },
+    {
+        "label": "reservations",
+        "kind": 5,
+        "importPath": "ec2.instanceStop",
+        "description": "ec2.instanceStop",
+        "peekOfCode": "reservations = response['Reservations']\nfor reservation in reservations:\n    instances = reservation['Instances']\n    for instance in instances:\n        if (dev_tag in instance['Tags'] and 'running' in instance['State']['Name']):\n            print(instance['InstanceId'])\n            ec2.stop_instances(InstanceIds=[instance['InstanceId']])",
+        "detail": "ec2.instanceStop",
+        "documentation": {}
+    },
+    {
+        "label": "ec2",
+        "kind": 5,
+        "importPath": "ec2.instanceTerminate",
+        "description": "ec2.instanceTerminate",
+        "peekOfCode": "ec2 = boto3.client('ec2')\ninstanceIds = ['']\nresponse = ec2.terminate_instances(InstanceIds=instanceIds)\nprint(response)",
+        "detail": "ec2.instanceTerminate",
+        "documentation": {}
+    },
+    {
+        "label": "instanceIds",
+        "kind": 5,
+        "importPath": "ec2.instanceTerminate",
+        "description": "ec2.instanceTerminate",
+        "peekOfCode": "instanceIds = ['']\nresponse = ec2.terminate_instances(InstanceIds=instanceIds)\nprint(response)",
+        "detail": "ec2.instanceTerminate",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "ec2.instanceTerminate",
+        "description": "ec2.instanceTerminate",
+        "peekOfCode": "response = ec2.terminate_instances(InstanceIds=instanceIds)\nprint(response)",
+        "detail": "ec2.instanceTerminate",
+        "documentation": {}
+    },
+    {
+        "label": "ec2",
+        "kind": 5,
+        "importPath": "ec2.keyPairNameList",
+        "description": "ec2.keyPairNameList",
+        "peekOfCode": "ec2 = boto3.client('ec2')\nresponse = ec2.describe_key_pairs()\nkeypairs = response[\"KeyPairs\"]\nfor keypair in keypairs:\n    print(keypair[\"KeyName\"])",
+        "detail": "ec2.keyPairNameList",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "ec2.keyPairNameList",
+        "description": "ec2.keyPairNameList",
+        "peekOfCode": "response = ec2.describe_key_pairs()\nkeypairs = response[\"KeyPairs\"]\nfor keypair in keypairs:\n    print(keypair[\"KeyName\"])",
+        "detail": "ec2.keyPairNameList",
+        "documentation": {}
+    },
+    {
+        "label": "keypairs",
+        "kind": 5,
+        "importPath": "ec2.keyPairNameList",
+        "description": "ec2.keyPairNameList",
+        "peekOfCode": "keypairs = response[\"KeyPairs\"]\nfor keypair in keypairs:\n    print(keypair[\"KeyName\"])",
+        "detail": "ec2.keyPairNameList",
+        "documentation": {}
+    },
+    {
+        "label": "ec2",
+        "kind": 5,
+        "importPath": "ec2.securityGroupIDList",
+        "description": "ec2.securityGroupIDList",
+        "peekOfCode": "ec2 = boto3.client('ec2')\nresponse = ec2.describe_security_groups()\nsecurityGroups = response[\"SecurityGroups\"]\nfor securityGroup in securityGroups:\n    print(securityGroup[\"GroupId\"])",
+        "detail": "ec2.securityGroupIDList",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "ec2.securityGroupIDList",
+        "description": "ec2.securityGroupIDList",
+        "peekOfCode": "response = ec2.describe_security_groups()\nsecurityGroups = response[\"SecurityGroups\"]\nfor securityGroup in securityGroups:\n    print(securityGroup[\"GroupId\"])",
+        "detail": "ec2.securityGroupIDList",
+        "documentation": {}
+    },
+    {
+        "label": "securityGroups",
+        "kind": 5,
+        "importPath": "ec2.securityGroupIDList",
+        "description": "ec2.securityGroupIDList",
+        "peekOfCode": "securityGroups = response[\"SecurityGroups\"]\nfor securityGroup in securityGroups:\n    print(securityGroup[\"GroupId\"])",
+        "detail": "ec2.securityGroupIDList",
+        "documentation": {}
+    },
+    {
+        "label": "iam",
+        "kind": 5,
+        "importPath": "iam.listPolicies",
+        "description": "iam.listPolicies",
+        "peekOfCode": "iam = boto3.client('iam')\nresponse = iam.list_policies()\npolicies = response['Policies']\nfor policy in policies:\n    print(policy['PolicyName'], policy['Arn'])",
+        "detail": "iam.listPolicies",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "iam.listPolicies",
+        "description": "iam.listPolicies",
+        "peekOfCode": "response = iam.list_policies()\npolicies = response['Policies']\nfor policy in policies:\n    print(policy['PolicyName'], policy['Arn'])",
+        "detail": "iam.listPolicies",
+        "documentation": {}
+    },
+    {
+        "label": "policies",
+        "kind": 5,
+        "importPath": "iam.listPolicies",
+        "description": "iam.listPolicies",
+        "peekOfCode": "policies = response['Policies']\nfor policy in policies:\n    print(policy['PolicyName'], policy['Arn'])",
+        "detail": "iam.listPolicies",
+        "documentation": {}
+    },
+    {
+        "label": "iam",
+        "kind": 5,
+        "importPath": "iam.policyCreate",
+        "description": "iam.policyCreate",
+        "peekOfCode": "iam = boto3.client('iam')\nrole_policy = '''{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Effect\": \"Allow\",\n            \"Action\": \"logs:CreateLogGroup\",\n            \"Resource\": \"arn:aws:logs:us-east-1:458806987020:*\"\n        },\n        {",
+        "detail": "iam.policyCreate",
+        "documentation": {}
+    },
+    {
+        "label": "role_policy",
+        "kind": 5,
+        "importPath": "iam.policyCreate",
+        "description": "iam.policyCreate",
+        "peekOfCode": "role_policy = '''{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Effect\": \"Allow\",\n            \"Action\": \"logs:CreateLogGroup\",\n            \"Resource\": \"arn:aws:logs:us-east-1:458806987020:*\"\n        },\n        {\n            \"Effect\": \"Allow\",",
+        "detail": "iam.policyCreate",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "iam.policyCreate",
+        "description": "iam.policyCreate",
+        "peekOfCode": "response = iam.create_policy(\n    PolicyName='lambda_sns_s3',\n    PolicyDocument=role_policy\n)\nprint(response)",
+        "detail": "iam.policyCreate",
+        "documentation": {}
+    },
+    {
+        "label": "iam",
+        "kind": 5,
+        "importPath": "iam.policyFind",
+        "description": "iam.policyFind",
+        "peekOfCode": "iam = boto3.client('iam')\npolicy_name = 'lambda_sns_s3'\nresponse = iam.list_policies()\npolicies = response['Policies']\nfor policy in policies:\n    if(policy_name in policy['PolicyName']):\n        print(policy['PolicyName'], policy['Arn'])",
+        "detail": "iam.policyFind",
+        "documentation": {}
+    },
+    {
+        "label": "policy_name",
+        "kind": 5,
+        "importPath": "iam.policyFind",
+        "description": "iam.policyFind",
+        "peekOfCode": "policy_name = 'lambda_sns_s3'\nresponse = iam.list_policies()\npolicies = response['Policies']\nfor policy in policies:\n    if(policy_name in policy['PolicyName']):\n        print(policy['PolicyName'], policy['Arn'])",
+        "detail": "iam.policyFind",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "iam.policyFind",
+        "description": "iam.policyFind",
+        "peekOfCode": "response = iam.list_policies()\npolicies = response['Policies']\nfor policy in policies:\n    if(policy_name in policy['PolicyName']):\n        print(policy['PolicyName'], policy['Arn'])",
+        "detail": "iam.policyFind",
+        "documentation": {}
+    },
+    {
+        "label": "policies",
+        "kind": 5,
+        "importPath": "iam.policyFind",
+        "description": "iam.policyFind",
+        "peekOfCode": "policies = response['Policies']\nfor policy in policies:\n    if(policy_name in policy['PolicyName']):\n        print(policy['PolicyName'], policy['Arn'])",
+        "detail": "iam.policyFind",
+        "documentation": {}
+    },
+    {
+        "label": "iam",
+        "kind": 5,
+        "importPath": "iam.roleCreate",
+        "description": "iam.roleCreate",
+        "peekOfCode": "iam = boto3.client('iam')\ntrust_policy = '''{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"Service\": \"lambda.amazonaws.com\"\n            },\n            \"Action\": \"sts:AssumeRole\"",
+        "detail": "iam.roleCreate",
+        "documentation": {}
+    },
+    {
+        "label": "trust_policy",
+        "kind": 5,
+        "importPath": "iam.roleCreate",
+        "description": "iam.roleCreate",
+        "peekOfCode": "trust_policy = '''{\n    \"Version\": \"2012-10-17\",\n    \"Statement\": [\n        {\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"Service\": \"lambda.amazonaws.com\"\n            },\n            \"Action\": \"sts:AssumeRole\"\n        }",
+        "detail": "iam.roleCreate",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "iam.roleCreate",
+        "description": "iam.roleCreate",
+        "peekOfCode": "response = iam.create_role(\n    RoleName='lambda_role_from_py',\n    AssumeRolePolicyDocument=trust_policy\n)\nprint(response)",
+        "detail": "iam.roleCreate",
+        "documentation": {}
+    },
+    {
+        "label": "iam",
+        "kind": 5,
+        "importPath": "iam.roleNamesList",
+        "description": "iam.roleNamesList",
+        "peekOfCode": "iam = boto3.client('iam')\nresponse = iam.list_roles()\nroles = response['Roles']\nfor role in roles:\n    print(role['RoleName'])",
+        "detail": "iam.roleNamesList",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "iam.roleNamesList",
+        "description": "iam.roleNamesList",
+        "peekOfCode": "response = iam.list_roles()\nroles = response['Roles']\nfor role in roles:\n    print(role['RoleName'])",
+        "detail": "iam.roleNamesList",
+        "documentation": {}
+    },
+    {
+        "label": "roles",
+        "kind": 5,
+        "importPath": "iam.roleNamesList",
+        "description": "iam.roleNamesList",
+        "peekOfCode": "roles = response['Roles']\nfor role in roles:\n    print(role['RoleName'])",
+        "detail": "iam.roleNamesList",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "s3.bucketCreate",
+        "description": "s3.bucketCreate",
+        "peekOfCode": "client = boto3.client(\"s3\")\n#%%\nresponse = client.create_bucket(Bucket=\"zali-bucket-test-boto3\") \nprint(json.dumps(response, indent=4))",
+        "detail": "s3.bucketCreate",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "s3.bucketCreate",
+        "description": "s3.bucketCreate",
+        "peekOfCode": "response = client.create_bucket(Bucket=\"zali-bucket-test-boto3\") \nprint(json.dumps(response, indent=4))",
+        "detail": "s3.bucketCreate",
+        "documentation": {}
+    },
+    {
+        "label": "s3",
+        "kind": 5,
+        "importPath": "s3.bucketDelete",
+        "description": "s3.bucketDelete",
+        "peekOfCode": "s3 = boto3.client('s3')\n#%%\ns3.delete_bucket(Bucket='zali-bucket-test-boto3')",
+        "detail": "s3.bucketDelete",
+        "documentation": {}
+    },
+    {
+        "label": "s3",
+        "kind": 5,
+        "importPath": "s3.bucketsList",
+        "description": "s3.bucketsList",
+        "peekOfCode": "s3 = boto3.client('s3')\n#%%\nresponse = s3.list_buckets()\n#%%\nbuckets = response[\"Buckets\"]\n#%%\nfor bucket in buckets:\n    print(bucket[\"Name\"])",
+        "detail": "s3.bucketsList",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "s3.bucketsList",
+        "description": "s3.bucketsList",
+        "peekOfCode": "response = s3.list_buckets()\n#%%\nbuckets = response[\"Buckets\"]\n#%%\nfor bucket in buckets:\n    print(bucket[\"Name\"])",
+        "detail": "s3.bucketsList",
+        "documentation": {}
+    },
+    {
+        "label": "buckets",
+        "kind": 5,
+        "importPath": "s3.bucketsList",
+        "description": "s3.bucketsList",
+        "peekOfCode": "buckets = response[\"Buckets\"]\n#%%\nfor bucket in buckets:\n    print(bucket[\"Name\"])",
+        "detail": "s3.bucketsList",
+        "documentation": {}
+    },
+    {
+        "label": "s3",
+        "kind": 5,
+        "importPath": "s3.objectUpload",
+        "description": "s3.objectUpload",
+        "peekOfCode": "s3 = boto3.client('s3')\nfilename = 'upload_object.py'\nbucket_name=\"zali-catch-all\"\nwith open(filename, 'rb') as data:\n    s3.upload_fileobj(data, bucket_name, filename)\n    print(\"Object Uploaded\")",
+        "detail": "s3.objectUpload",
+        "documentation": {}
+    },
+    {
+        "label": "filename",
+        "kind": 5,
+        "importPath": "s3.objectUpload",
+        "description": "s3.objectUpload",
+        "peekOfCode": "filename = 'upload_object.py'\nbucket_name=\"zali-catch-all\"\nwith open(filename, 'rb') as data:\n    s3.upload_fileobj(data, bucket_name, filename)\n    print(\"Object Uploaded\")",
+        "detail": "s3.objectUpload",
+        "documentation": {}
+    },
+    {
+        "label": "s3",
+        "kind": 5,
+        "importPath": "s3.objectsList",
+        "description": "s3.objectsList",
+        "peekOfCode": "s3 = boto3.client('s3')\nbucket_name=\"zali-catch-all\"\nresponse = s3.list_objects(\n    Bucket=bucket_name\n)\ncontents = response['Contents']\nfor content in contents:\n    print(content['Key'])",
+        "detail": "s3.objectsList",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "s3.objectsList",
+        "description": "s3.objectsList",
+        "peekOfCode": "response = s3.list_objects(\n    Bucket=bucket_name\n)\ncontents = response['Contents']\nfor content in contents:\n    print(content['Key'])",
+        "detail": "s3.objectsList",
+        "documentation": {}
+    },
+    {
+        "label": "contents",
+        "kind": 5,
+        "importPath": "s3.objectsList",
+        "description": "s3.objectsList",
+        "peekOfCode": "contents = response['Contents']\nfor content in contents:\n    print(content['Key'])",
+        "detail": "s3.objectsList",
+        "documentation": {}
+    },
+    {
+        "label": "vpc",
+        "kind": 5,
+        "importPath": "vpc.SGids",
+        "description": "vpc.SGids",
+        "peekOfCode": "vpc = boto3.client('ec2')\nresponse = vpc.describe_security_groups()\nsecuritygroups = response['SecurityGroups']\nfor securitygroup in securitygroups:\n    print(securitygroup['GroupId'])",
+        "detail": "vpc.SGids",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "vpc.SGids",
+        "description": "vpc.SGids",
+        "peekOfCode": "response = vpc.describe_security_groups()\nsecuritygroups = response['SecurityGroups']\nfor securitygroup in securitygroups:\n    print(securitygroup['GroupId'])",
+        "detail": "vpc.SGids",
+        "documentation": {}
+    },
+    {
+        "label": "securitygroups",
+        "kind": 5,
+        "importPath": "vpc.SGids",
+        "description": "vpc.SGids",
+        "peekOfCode": "securitygroups = response['SecurityGroups']\nfor securitygroup in securitygroups:\n    print(securitygroup['GroupId'])",
+        "detail": "vpc.SGids",
+        "documentation": {}
+    },
+    {
+        "label": "vpc_client",
+        "kind": 5,
+        "importPath": "vpc.VPCids",
+        "description": "vpc.VPCids",
+        "peekOfCode": "vpc_client = boto3.client('ec2')\nresponse = vpc_client.describe_vpcs()\nvpcs = response['Vpcs']\nfor vpc in vpcs:\n    print(vpc['VpcId'])",
+        "detail": "vpc.VPCids",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "vpc.VPCids",
+        "description": "vpc.VPCids",
+        "peekOfCode": "response = vpc_client.describe_vpcs()\nvpcs = response['Vpcs']\nfor vpc in vpcs:\n    print(vpc['VpcId'])",
+        "detail": "vpc.VPCids",
+        "documentation": {}
+    },
+    {
+        "label": "vpcs",
+        "kind": 5,
+        "importPath": "vpc.VPCids",
+        "description": "vpc.VPCids",
+        "peekOfCode": "vpcs = response['Vpcs']\nfor vpc in vpcs:\n    print(vpc['VpcId'])",
+        "detail": "vpc.VPCids",
+        "documentation": {}
+    },
+    {
+        "label": "vpc",
+        "kind": 5,
+        "importPath": "vpc.subnetList",
+        "description": "vpc.subnetList",
+        "peekOfCode": "vpc = boto3.client('ec2')\nresponse = vpc.describe_subnets()\nsubnets = response['Subnets']\nfor subnet in subnets:\n    print(subnet['SubnetId'])",
+        "detail": "vpc.subnetList",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "vpc.subnetList",
+        "description": "vpc.subnetList",
+        "peekOfCode": "response = vpc.describe_subnets()\nsubnets = response['Subnets']\nfor subnet in subnets:\n    print(subnet['SubnetId'])",
+        "detail": "vpc.subnetList",
+        "documentation": {}
+    },
+    {
+        "label": "subnets",
+        "kind": 5,
+        "importPath": "vpc.subnetList",
+        "description": "vpc.subnetList",
+        "peekOfCode": "subnets = response['Subnets']\nfor subnet in subnets:\n    print(subnet['SubnetId'])",
+        "detail": "vpc.subnetList",
+        "documentation": {}
+    }
+]
